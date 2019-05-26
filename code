@@ -1,0 +1,17 @@
+regex_integer_in_range = r"^[1-9][0-9]{5}$"
+regex_alternating_repetitive_digit_pair = r"(\d)(?=.\1)"
+p_code = input().strip()
+
+#conditions
+digit = p_code.isdigit()
+in_range = digit and 100000 <= int(p_code) <= 999999
+repetitive_digit = digit and sum([p_code[i]==p_code[i+2] for i in range(0,4)]) > 1
+
+#print True or False
+print(in_range and not repetitive_digit)
+
+import re
+P = input()
+
+print (bool(re.match(regex_integer_in_range, P)) 
+and len(re.findall(regex_alternating_repetitive_digit_pair, P)) < 2)
